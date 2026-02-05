@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KONZOK - Planen + Bauen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Animation keyframes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+                filter: blur(4px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.98);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+
+        /* Base animation classes */
+        .animate-fade-in-up {
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+        }
+
+        .animate-fade-in {
+            opacity: 0;
+            animation: fadeIn 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+        }
+
+        .animate-scale-in {
+            opacity: 0;
+            animation: scaleIn 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+        }
+
+        .animate-slide-up {
+            animation: slideUp 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+        }
+
+        /* Staggered delays */
+        .delay-0 { animation-delay: 0ms; }
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .delay-400 { animation-delay: 400ms; }
+        .delay-500 { animation-delay: 500ms; }
+        .delay-600 { animation-delay: 600ms; }
+        .delay-700 { animation-delay: 700ms; }
+        .delay-1000 { animation-delay: 1000ms; }
+
+        /* Utilities */
+        .text-balance { text-wrap: balance; }
+        .text-pretty { text-wrap: pretty; }
+        
+        /* Custom font smoothing for serif text */
+        .font-serif {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Hide scrollbar for image container but allow scroll */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .animate-fade-in-up,
+            .animate-fade-in,
+            .animate-scale-in,
+            .animate-slide-up {
+                animation: none;
+                opacity: 1;
+                transform: none;
+                filter: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 font-serif overflow-x-hidden min-h-screen flex flex-col">
+
+    <!-- Navigation -->
+    <header class="w-full px-6 py-8 md:px-12 lg:px-16 max-w-[1800px] mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-6 md:gap-0">
+            
+            <!-- Logo -->
+            <div class="animate-fade-in delay-0 flex flex-col items-center w-fit">
+                <div class="text-3xl md:text-4xl tracking-[0.05em] text-[#4a4a4a] uppercase font-serif leading-none">
+                    Konzok
+                </div>
+                <div class="w-full h-[1px] bg-[#a3a3a3] my-1.5"></div>
+                <div class="text-[10px] md:text-[11px] tracking-[0.2em] text-[#737373] uppercase font-sans font-medium">
+                    Planen + Bauen
+                </div>
+            </div>
+
+            <!-- Nav Links -->
+            <nav class="animate-fade-in delay-100 hidden md:flex items-center space-x-8 lg:space-x-10 pt-2">
+                <a href="#" class="text-[#9ca3af] hover:text-gray-600 transition-colors text-lg lg:text-xl">Projekte</a>
+                <a href="#" class="text-[#9ca3af] hover:text-gray-600 transition-colors text-lg lg:text-xl">Pamina</a>
+                <a href="#" class="text-[#9ca3af] hover:text-gray-600 transition-colors text-lg lg:text-xl">Büro</a>
+                <a href="#" class="text-[#9ca3af] hover:text-gray-600 transition-colors text-lg lg:text-xl">Karriere</a>
+                <a href="#" class="text-[#9ca3af] hover:text-gray-600 transition-colors text-lg lg:text-xl">Kontakt</a>
+            </nav>
+            
+            <!-- Mobile Menu Button (Visible only on small screens) -->
+            <button class="md:hidden text-gray-400 animate-fade-in delay-100">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Hero Content -->
+    <main class="flex-grow flex flex-col justify-center px-6 md:px-12 lg:px-16 max-w-[1800px] mx-auto w-full mt-8 md:mt-16 mb-12">
+        
+        <!-- Hero Text -->
+        <div class="animate-fade-in-up delay-200 max-w-full lg:max-w-[95%] xl:max-w-[90%]">
+            <h1 class="text-[2rem] sm:text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem] leading-[1.15] md:leading-[1.1] text-[#a3a3a3] font-serif text-pretty">
+                <span class="text-[#1a1a1a]">KONZOK plant, verkauft und betreibt Immobilien.</span>
+                In über 70 Jahren sind so mehr als 2000 Einheiten entstanden. Heute ist KONZOK mit mehr als 700 
+                <span class="underline decoration-1 underline-offset-[6px] decoration-[#a3a3a3]">PAMINA – betreut leben</span>
+                Wohnungen Marktführer für Seniorenwohnen in Südwest-Deutschland.
+            </h1>
+        </div>
+
+    </main>
+
+    <!-- Image Grid / Carousel -->
+    <div class="w-full overflow-hidden pb-24 md:pb-32">
+        <div class="flex gap-4 md:gap-6 px-4 md:px-8 overflow-x-auto no-scrollbar">
+            <!-- Image 1 -->
+            <div class="animate-scale-in delay-300 flex-none w-[280px] md:w-[350px] lg:w-[400px] aspect-[3/4] relative group">
+                <img src="https://placehold.co/400x533/f1f5f9/cbd5e1?text=Architecture+1" 
+                     alt="Modern Building Architecture" 
+                     class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700 ease-out">
+            </div>
+            
+            <!-- Image 2 -->
+            <div class="animate-scale-in delay-400 flex-none w-[280px] md:w-[350px] lg:w-[400px] aspect-[3/4] relative group">
+                <img src="https://placehold.co/400x533/f8fafc/cbd5e1?text=Balcony+View" 
+                     alt="Building Balcony with Flowers" 
+                     class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700 ease-out">
+            </div>
+
+            <!-- Image 3 -->
+            <div class="animate-scale-in delay-500 flex-none w-[280px] md:w-[350px] lg:w-[400px] aspect-[3/4] relative group">
+                <img src="https://placehold.co/400x533/f1f5f9/cbd5e1?text=Sky+View" 
+                     alt="Building against Sky" 
+                     class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700 ease-out">
+            </div>
+
+            <!-- Image 4 -->
+            <div class="animate-scale-in delay-600 flex-none w-[280px] md:w-[350px] lg:w-[400px] aspect-[3/4] relative group">
+                <img src="https://placehold.co/400x533/f8fafc/cbd5e1?text=Modern+Facade" 
+                     alt="Modern White Facade" 
+                     class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700 ease-out">
+            </div>
+
+            <!-- Image 5 -->
+            <div class="animate-scale-in delay-700 flex-none w-[280px] md:w-[350px] lg:w-[400px] aspect-[3/4] relative group">
+                <img src="https://placehold.co/400x533/f1f5f9/cbd5e1?text=Detail+Shot" 
+                     alt="Architectural Detail" 
+                     class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700 ease-out">
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Consent Banner -->
+    <div class="animate-slide-up delay-1000 fixed bottom-0 left-0 w-full bg-white border-t border-gray-100 p-4 md:px-8 md:py-5 z-50 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+        <div class="max-w-[1800px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8">
+            <p class="text-[10px] md:text-xs text-gray-500 font-serif leading-relaxed text-center md:text-left max-w-4xl">
+                Durch die Nutzung dieser Website erklären Sie sich mit unserer Verwendung von Cookies einverstanden. Wir verwenden Cookies, um Ihnen ein tolles Erlebnis zu bieten und unsere Website wirksam zu betreiben.
+            </p>
+            <button class="bg-[#facc15] hover:bg-[#eab308] text-white text-xs font-sans px-6 py-2.5 transition-colors duration-300 min-w-[100px]">
+                Annehmen
+            </button>
+        </div>
+    </div>
+
+</body>
+</html>
