@@ -37,8 +37,6 @@
         .delay-200 { animation-delay: 200ms; }
         .delay-300 { animation-delay: 300ms; }
         .delay-400 { animation-delay: 400ms; }
-        .delay-500 { animation-delay: 500ms; }
-        .delay-600 { animation-delay: 600ms; }
 
         .text-balance { text-wrap: balance; }
         .text-pretty { text-wrap: pretty; }
@@ -50,65 +48,65 @@
                 transform: none;
             }
         }
-
-        /* Custom font setup to match the classic serif look */
-        body {
-            font-family: "Times New Roman", Times, serif;
-        }
-        .font-sans-custom {
-            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-        }
     </style>
 </head>
-<body class="bg-white text-[#222222] antialiased overflow-x-hidden relative pb-20">
+<body class="bg-white font-serif antialiased text-[#111827] min-h-screen flex flex-col overflow-x-hidden">
 
     <!-- Header / Navigation -->
-    <header class="max-w-[1440px] mx-auto px-10 py-12 flex justify-between items-start animate-fade-in delay-0">
-        <!-- Logo Area -->
-        <div class="flex flex-col items-center cursor-pointer inline-block">
-            <h1 class="text-[42px] leading-none text-[#333333] tracking-[0.05em] font-normal">KONZOK</h1>
-            <div class="w-full h-[1px] bg-[#d4c38d] mt-[6px] mb-[6px]"></div>
-            <span class="text-[10px] tracking-[0.25em] text-[#666666] font-sans-custom uppercase w-full text-center pl-[0.25em]">PLANEN + BAUEN</span>
-        </div>
-
-        <!-- Navigation Links -->
-        <nav class="flex gap-8 mt-4">
-            <a href="#" class="text-[18px] text-[#999999] hover:text-[#222222] transition-colors duration-200">Projekte</a>
-            <a href="#" class="text-[18px] text-[#999999] hover:text-[#222222] transition-colors duration-200">Pamina</a>
-            <a href="#" class="text-[18px] text-[#999999] hover:text-[#222222] transition-colors duration-200">Büro</a>
-            <a href="#" class="text-[18px] text-[#999999] hover:text-[#222222] transition-colors duration-200">Karriere</a>
-            <a href="#" class="text-[18px] text-[#999999] hover:text-[#222222] transition-colors duration-200">Kontakt</a>
+    <header class="flex justify-between items-center px-6 md:px-12 lg:px-16 pt-12 pb-6 animate-fade-in delay-0 w-full max-w-[120rem] mx-auto">
+        <a href="#" class="inline-flex flex-col group">
+            <span class="text-4xl md:text-[42px] tracking-wider text-[#111827] leading-none mb-2">KONZOK</span>
+            <div class="h-[1px] w-full bg-[#d1d5db] mb-2 group-hover:bg-[#9ca3af] transition-colors duration-300"></div>
+            <span class="text-[10px] md:text-[11px] font-sans tracking-[0.25em] text-[#6b7280] uppercase text-center">Planen + Bauen</span>
+        </a>
+        
+        <nav class="hidden md:flex gap-8 lg:gap-10 text-[#9ca3af] text-[17px]">
+            <a href="#" class="hover:text-[#111827] transition-colors duration-200">Projekte</a>
+            <a href="#" class="hover:text-[#111827] transition-colors duration-200">Pamina</a>
+            <a href="#" class="hover:text-[#111827] transition-colors duration-200">Büro</a>
+            <a href="#" class="hover:text-[#111827] transition-colors duration-200">Karriere</a>
+            <a href="#" class="hover:text-[#111827] transition-colors duration-200">Kontakt</a>
         </nav>
     </header>
 
-    <!-- Hero Text Section -->
-    <section class="max-w-[1440px] mx-auto px-10 pt-20 pb-24 animate-fade-in-up delay-100">
-        <p class="max-w-[1250px] text-[48px] leading-[1.3] text-[#a3a3a3] text-pretty font-normal">
-            <span class="text-[#111111]">KONZOK plant, verkauft und betreibt Immobilien.</span>
-            In über 70 Jahren sind so mehr als 2000 Einheiten entstanden. Heute ist KONZOK mit mehr als 700 
-            <span class="border-b-[1px] border-[#a3a3a3] pb-[2px]">PAMINA – betreut leben</span> 
-            Wohnungen Marktführer für Seniorenwohnen in Südwest-Deutschland.
-        </p>
-    </section>
+    <!-- Main Content -->
+    <main class="flex-grow flex flex-col justify-center">
+        
+        <!-- Hero Text Section -->
+        <section class="px-6 md:px-12 lg:px-16 mt-16 md:mt-24 lg:mt-28 w-full max-w-[120rem] mx-auto animate-fade-in-up delay-100">
+            <h1 class="text-[32px] sm:text-[40px] md:text-[46px] lg:text-[52px] leading-[1.35] max-w-[90rem]">
+                <span class="text-[#111827]">KONZOK plant, verkauft und betreibt Immobilien.</span>
+                <span class="text-[#9ca3af]">In über 70 Jahren sind so mehr als 2000 Einheiten entstanden. Heute ist KONZOK mit mehr als 700 <span class="underline decoration-1 underline-offset-[6px] md:underline-offset-[8px] decoration-[#9ca3af]">PAMINA – betreut leben</span> Wohnungen Marktführer für Seniorenwohnen in Südwest-Deutschland.</span>
+            </h1>
+        </section>
 
-    <!-- Image Gallery Section -->
-    <section class="w-full overflow-hidden pb-20 animate-fade-in delay-200">
-        <!-- Container wider than viewport to allow edge images to bleed off -->
-        <div class="flex justify-center gap-5 min-w-max px-4">
-            <img src="https://placehold.co/400x540/e2e8f0/94a3b8?text=Building+Edge" alt="Building Architecture" class="w-[400px] h-[540px] object-cover animate-scale-in delay-300">
-            <img src="https://placehold.co/400x540/e2e8f0/94a3b8?text=Modern+Building" alt="Modern Building Facade" class="w-[400px] h-[540px] object-cover animate-scale-in delay-400">
-            <img src="https://placehold.co/400x540/fef08a/ca8a04?text=Balcony+Life" alt="People on Balcony" class="w-[400px] h-[540px] object-cover animate-scale-in delay-500">
-            <img src="https://placehold.co/400x540/e2e8f0/94a3b8?text=Building+Complex" alt="Building Complex Wide" class="w-[400px] h-[540px] object-cover animate-scale-in delay-600">
-            <img src="https://placehold.co/400x540/e2e8f0/94a3b8?text=Building+Edge" alt="Building Architecture" class="w-[400px] h-[540px] object-cover animate-scale-in delay-600">
-        </div>
-    </section>
+        <!-- Hero Image Gallery Section -->
+        <section class="w-full overflow-hidden mt-16 md:mt-20 lg:mt-24 mb-16 animate-scale-in delay-300">
+            <div class="flex gap-4 md:gap-6 h-[350px] sm:h-[450px] md:h-[550px] lg:h-[650px] w-[110%] -ml-[5%]">
+                <img src="https://placehold.co/300x900/e2e8f0/94a3b8" class="w-[10%] object-cover" alt="Architecture detail edge">
+                <img src="https://placehold.co/800x900/e2e8f0/94a3b8" class="w-[20%] object-cover" alt="Modern white building exterior against blue sky">
+                <img src="https://placehold.co/800x900/e2e8f0/94a3b8" class="w-[20%] object-cover" alt="People waving from a modern apartment balcony">
+                <img src="https://placehold.co/800x900/e2e8f0/94a3b8" class="w-[20%] object-cover" alt="Wide view of modern building complex">
+                <img src="https://placehold.co/800x900/e2e8f0/94a3b8" class="w-[20%] object-cover" alt="Modern white building exterior with balconies">
+                <img src="https://placehold.co/300x900/e2e8f0/94a3b8" class="w-[10%] object-cover" alt="Architecture detail edge with yellow foreground">
+            </div>
+        </section>
+
+        <!-- Secondary Text Section -->
+        <section class="px-6 md:px-12 lg:px-16 mb-32 w-full max-w-[120rem] mx-auto animate-fade-in-up delay-400">
+            <p class="text-[32px] sm:text-[40px] md:text-[46px] lg:text-[52px] leading-[1.35] text-[#9ca3af] max-w-[90rem]">
+                KONZOK vereint ein erfahrenes Team aus Architekten, Ingenieuren und Immobilienexperten und realisiert ein umfangreiches Aufgabengebiet von der Projektentwicklung, der Planung, der Beratung, dem Baumanagement bis zur Vermarktung und Vermietung unserer Projekte. Mehr zu unseren <a href="#" class="underline decoration-1 underline-offset-[6px] md:underline-offset-[8px] decoration-[#9ca3af] hover:text-[#111827] transition-colors">Projekten</a>, <a href="#" class="underline decoration-1 underline-offset-[6px] md:underline-offset-[8px] decoration-[#9ca3af] hover:text-[#111827] transition-colors">PAMINA – betreut leben</a>, unserem <a href="#" class="underline decoration-1 underline-offset-[6px] md:underline-offset-[8px] decoration-[#9ca3af] hover:text-[#111827] transition-colors">Büro</a>, <a href="#" class="underline decoration-1 underline-offset-[6px] md:underline-offset-[8px] decoration-[#9ca3af] hover:text-[#111827] transition-colors">Karriere</a> und <a href="#" class="underline decoration-1 underline-offset-[6px] md:underline-offset-[8px] decoration-[#9ca3af] hover:text-[#111827] transition-colors">Kontakt</a>.
+            </p>
+        </section>
+
+    </main>
 
     <!-- Cookie Banner -->
-    <div class="fixed bottom-0 left-0 w-full bg-white px-10 py-4 flex justify-between items-center z-50 animate-fade-in delay-600 shadow-[0_-4px_20px_rgba(0,0,0,0.03)]">
-        <p class="text-[12px] text-[#333333] font-sans-custom max-w-[80%]">
+    <div class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-100 p-4 px-6 md:px-12 lg:px-16 flex flex-col sm:flex-row justify-between items-center gap-4 z-50 animate-fade-in delay-400">
+        <p class="text-[11px] md:text-xs font-sans text-[#6b7280] max-w-4xl">
             Durch die Nutzung dieser Website erklären Sie sich mit unserer Verwendung von Cookies einverstanden. Wir verwenden Cookies, um Ihnen ein tolles Erlebnis zu bieten und unsere Website wirksam zu betreiben.
         </p>
-        <button class="bg-[#f4d75e] text-white px-8 py-2.5 text-[13px] font-sans-custom hover:bg-[#e5c84f] transition-colors">
+        <button class="bg-[#fcd34d] hover:bg-[#fbbf24] text-white font-sans text-xs px-8 py-3 transition-colors duration-200 whitespace-nowrap">
             Annehmen
         </button>
     </div>
