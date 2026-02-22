@@ -6,53 +6,32 @@
     <title>KONZOK - Planen + Bauen</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Animation keyframes */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-                filter: blur(4px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-                filter: blur(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-
         @keyframes scaleIn {
-            from {
-                opacity: 0;
-                transform: scale(0.98);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+            from { opacity: 0; transform: scale(0.97); }
+            to { opacity: 1; transform: scale(1); }
         }
 
-        /* Base animation classes */
         .animate-fade-in-up {
             opacity: 0;
-            animation: fadeInUp 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+            animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
-
         .animate-fade-in {
             opacity: 0;
-            animation: fadeIn 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+            animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
-
         .animate-scale-in {
             opacity: 0;
-            animation: scaleIn 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+            animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        /* Staggered delays */
         .delay-0 { animation-delay: 0ms; }
         .delay-100 { animation-delay: 100ms; }
         .delay-200 { animation-delay: 200ms; }
@@ -60,96 +39,76 @@
         .delay-400 { animation-delay: 400ms; }
         .delay-500 { animation-delay: 500ms; }
         .delay-600 { animation-delay: 600ms; }
-        .delay-700 { animation-delay: 700ms; }
-        .delay-800 { animation-delay: 800ms; }
-        .delay-900 { animation-delay: 900ms; }
 
-        /* Utilities */
         .text-balance { text-wrap: balance; }
         .text-pretty { text-wrap: pretty; }
-        
-        /* Custom font smoothing for serif text */
-        body {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+
+        @media (prefers-reduced-motion: reduce) {
+            .animate-fade-in-up, .animate-fade-in, .animate-scale-in {
+                animation: none;
+                opacity: 1;
+                transform: none;
+            }
         }
 
-        /* Hide scrollbar for cleaner look if needed */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
+        /* Custom font setup to match the classic serif look */
+        body {
+            font-family: "Times New Roman", Times, serif;
         }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
+        .font-sans-custom {
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         }
     </style>
 </head>
-<body class="bg-white font-serif text-gray-500 overflow-x-hidden min-h-screen flex flex-col">
+<body class="bg-white text-[#222222] antialiased overflow-x-hidden relative pb-20">
 
-    <!-- Navigation Header -->
-    <header class="w-full px-6 py-8 md:px-12 md:py-10 flex flex-col md:flex-row justify-between items-center md:items-start animate-fade-in delay-0 z-10">
-        <!-- Logo Section -->
-        <div class="flex flex-col items-center mb-6 md:mb-0 group cursor-pointer">
-            <h1 class="text-3xl md:text-4xl text-gray-800 tracking-widest uppercase font-normal border-b border-gray-400 pb-1 mb-1 leading-none">Konzok</h1>
-            <span class="text-[0.65rem] text-gray-500 tracking-[0.25em] uppercase font-sans">Planen + Bauen</span>
+    <!-- Header / Navigation -->
+    <header class="max-w-[1440px] mx-auto px-10 py-12 flex justify-between items-start animate-fade-in delay-0">
+        <!-- Logo Area -->
+        <div class="flex flex-col items-center cursor-pointer inline-block">
+            <h1 class="text-[42px] leading-none text-[#333333] tracking-[0.05em] font-normal">KONZOK</h1>
+            <div class="w-full h-[1px] bg-[#d4c38d] mt-[6px] mb-[6px]"></div>
+            <span class="text-[10px] tracking-[0.25em] text-[#666666] font-sans-custom uppercase w-full text-center pl-[0.25em]">PLANEN + BAUEN</span>
         </div>
 
-        <!-- Menu Links -->
-        <nav>
-            <ul class="flex flex-wrap justify-center gap-6 md:gap-10 text-lg md:text-xl text-gray-400 font-normal">
-                <li><a href="#" class="hover:text-gray-800 transition-colors duration-300">Projekte</a></li>
-                <li><a href="#" class="hover:text-gray-800 transition-colors duration-300">Pamina</a></li>
-                <li><a href="#" class="hover:text-gray-800 transition-colors duration-300">Büro</a></li>
-                <li><a href="#" class="hover:text-gray-800 transition-colors duration-300">Karriere</a></li>
-                <li><a href="#" class="hover:text-gray-800 transition-colors duration-300">Kontakt</a></li>
-            </ul>
+        <!-- Navigation Links -->
+        <nav class="flex gap-8 mt-4">
+            <a href="#" class="text-[18px] text-[#999999] hover:text-[#222222] transition-colors duration-200">Projekte</a>
+            <a href="#" class="text-[18px] text-[#999999] hover:text-[#222222] transition-colors duration-200">Pamina</a>
+            <a href="#" class="text-[18px] text-[#999999] hover:text-[#222222] transition-colors duration-200">Büro</a>
+            <a href="#" class="text-[18px] text-[#999999] hover:text-[#222222] transition-colors duration-200">Karriere</a>
+            <a href="#" class="text-[18px] text-[#999999] hover:text-[#222222] transition-colors duration-200">Kontakt</a>
         </nav>
     </header>
 
-    <!-- Main Hero Content -->
-    <main class="flex-grow w-full px-6 md:px-12 mt-8 md:mt-20 mb-16 md:mb-24">
-        <div class="max-w-[90rem]">
-            <h2 class="text-3xl md:text-5xl lg:text-[3.4rem] leading-[1.2] md:leading-[1.15] text-pretty animate-fade-in-up delay-200 font-normal">
-                <span class="text-gray-900">KONZOK plant, verkauft und betreibt Immobilien.</span>
-                <span class="text-gray-400/90">In über 70 Jahren sind so mehr als 2000 Einheiten entstanden. Heute ist KONZOK mit mehr als 700 <a href="#" class="underline decoration-1 underline-offset-4 decoration-gray-300 hover:decoration-gray-400 hover:text-gray-500 transition-all cursor-pointer">PAMINA – betreut leben</a> Wohnungen Marktführer für Seniorenwohnen in Südwest-Deutschland.</span>
-            </h2>
-        </div>
-    </main>
+    <!-- Hero Text Section -->
+    <section class="max-w-[1440px] mx-auto px-10 pt-20 pb-24 animate-fade-in-up delay-100">
+        <p class="max-w-[1250px] text-[48px] leading-[1.3] text-[#a3a3a3] text-pretty font-normal">
+            <span class="text-[#111111]">KONZOK plant, verkauft und betreibt Immobilien.</span>
+            In über 70 Jahren sind so mehr als 2000 Einheiten entstanden. Heute ist KONZOK mit mehr als 700 
+            <span class="border-b-[1px] border-[#a3a3a3] pb-[2px]">PAMINA – betreut leben</span> 
+            Wohnungen Marktführer für Seniorenwohnen in Südwest-Deutschland.
+        </p>
+    </section>
 
-    <!-- Image Grid / Slider -->
-    <div class="w-full grid grid-cols-2 md:grid-cols-5 gap-4 px-4 md:px-0 mb-32 overflow-hidden">
-        <!-- Image 1 -->
-        <div class="relative aspect-[3/4] md:aspect-[4/5] overflow-hidden animate-scale-in delay-300 group">
-            <img src="https://placehold.co/600x800/e2e8f0/94a3b8?text=Architecture+1" alt="Modern building architecture" class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105">
+    <!-- Image Gallery Section -->
+    <section class="w-full overflow-hidden pb-20 animate-fade-in delay-200">
+        <!-- Container wider than viewport to allow edge images to bleed off -->
+        <div class="flex justify-center gap-5 min-w-max px-4">
+            <img src="https://placehold.co/400x540/e2e8f0/94a3b8?text=Building+Edge" alt="Building Architecture" class="w-[400px] h-[540px] object-cover animate-scale-in delay-300">
+            <img src="https://placehold.co/400x540/e2e8f0/94a3b8?text=Modern+Building" alt="Modern Building Facade" class="w-[400px] h-[540px] object-cover animate-scale-in delay-400">
+            <img src="https://placehold.co/400x540/fef08a/ca8a04?text=Balcony+Life" alt="People on Balcony" class="w-[400px] h-[540px] object-cover animate-scale-in delay-500">
+            <img src="https://placehold.co/400x540/e2e8f0/94a3b8?text=Building+Complex" alt="Building Complex Wide" class="w-[400px] h-[540px] object-cover animate-scale-in delay-600">
+            <img src="https://placehold.co/400x540/e2e8f0/94a3b8?text=Building+Edge" alt="Building Architecture" class="w-[400px] h-[540px] object-cover animate-scale-in delay-600">
         </div>
-        
-        <!-- Image 2 -->
-        <div class="relative aspect-[3/4] md:aspect-[4/5] overflow-hidden animate-scale-in delay-400 group">
-            <img src="https://placehold.co/600x800/fef08a/ca8a04?text=Balcony+Detail" alt="Building balcony with yellow flowers" class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105">
-        </div>
-        
-        <!-- Image 3 -->
-        <div class="relative aspect-[3/4] md:aspect-[4/5] overflow-hidden animate-scale-in delay-500 group">
-            <img src="https://placehold.co/600x800/f1f5f9/cbd5e1?text=Sky+View" alt="Building against blue sky" class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105">
-        </div>
-        
-        <!-- Image 4 -->
-        <div class="relative aspect-[3/4] md:aspect-[4/5] overflow-hidden animate-scale-in delay-600 group">
-            <img src="https://placehold.co/600x800/e2e8f0/94a3b8?text=Modern+Facade" alt="White building facade" class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105">
-        </div>
-        
-        <!-- Image 5 -->
-        <div class="relative aspect-[3/4] md:aspect-[4/5] overflow-hidden animate-scale-in delay-700 group hidden md:block">
-            <img src="https://placehold.co/600x800/fef08a/ca8a04?text=Garden+View" alt="Building garden view" class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105">
-        </div>
-    </div>
+    </section>
 
-    <!-- Cookie Consent Footer -->
-    <div class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-100 p-4 md:px-12 md:py-6 flex flex-col md:flex-row justify-between items-center gap-4 z-50 animate-fade-in-up delay-900 shadow-[0_-4px_20px_rgba(0,0,0,0.02)]">
-        <p class="text-xs md:text-[13px] text-gray-800 leading-relaxed text-center md:text-left font-serif max-w-5xl">
+    <!-- Cookie Banner -->
+    <div class="fixed bottom-0 left-0 w-full bg-white px-10 py-4 flex justify-between items-center z-50 animate-fade-in delay-600 shadow-[0_-4px_20px_rgba(0,0,0,0.03)]">
+        <p class="text-[12px] text-[#333333] font-sans-custom max-w-[80%]">
             Durch die Nutzung dieser Website erklären Sie sich mit unserer Verwendung von Cookies einverstanden. Wir verwenden Cookies, um Ihnen ein tolles Erlebnis zu bieten und unsere Website wirksam zu betreiben.
         </p>
-        <button class="bg-[#F2D04B] text-white px-8 py-2.5 text-xs font-sans font-medium uppercase tracking-wider hover:bg-[#e5c33a] transition-colors duration-300 whitespace-nowrap">
+        <button class="bg-[#f4d75e] text-white px-8 py-2.5 text-[13px] font-sans-custom hover:bg-[#e5c84f] transition-colors">
             Annehmen
         </button>
     </div>
